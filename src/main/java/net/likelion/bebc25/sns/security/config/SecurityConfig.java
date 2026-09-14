@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,8 +21,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.context.SecurityContextHolderFilter;
-
-import java.net.http.HttpRequest;
 
 @Configuration
 @EnableWebSecurity
@@ -104,7 +101,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/v1/posts/**").permitAll()
 
                         // 소셜 로그인 테스트용
-                        .requestMatchers("/login.html", "/favicon.ico", "/oauth/**").permitAll()
+                        .requestMatchers("/login.html", "/static/favicon.ico", "/oauth/**").permitAll()
 
                         // 공지사항 조회(GET)는 비로그인 사용자에게도 공개 허용
                         .requestMatchers(HttpMethod.GET, "/api/v1/notices/**").permitAll()

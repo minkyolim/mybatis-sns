@@ -1,3 +1,7 @@
+**/*.pem
+.env*
+!env.example
+
 ### OAuth Secret ###
 application-oauth.yaml
 
